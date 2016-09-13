@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        configureDatabase()
     }
 
  
@@ -33,6 +34,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var logoutBTN: UIButton!
     @IBOutlet weak var regBTN: UIButton!
     
+    var ref: FIRDatabaseReference!
+    var messages: [FIRDataSnapshot]! = []
+    var msglength: NSNumber = 10
+    private var _refHandle: FIRDatabaseHandle!
+    
     @IBAction func didTapSignIn(sender: AnyObject) {
         // Sign In with credentials.
         let email = emailFLD.text
@@ -44,8 +50,10 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
                 return
             }
+             self.ref = FIRDatabase.database().reference()
              print("sign in ok")
              print(user)
+             print(self.ref)
              self.topLBL.text = "You have Signed In"
   //          self.signedIn(user!)
         }
@@ -66,6 +74,8 @@ class ViewController: UIViewController {
         }
     }
     
+    func configureDatabase() {
+    }
     
     
     @IBAction func signOut(sender: UIButton) {
