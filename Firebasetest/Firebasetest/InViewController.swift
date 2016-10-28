@@ -83,8 +83,9 @@ class InViewController: UIViewController, UIPageViewControllerDataSource{
             
 
         
-        self.pageViewController.view.frame = CGRectMake(0, 30, self.view.frame.width, self.view.frame.size.height - 60)
-        
+//        self.pageViewController.view.frame = CGRectMake(0, 30, self.view.frame.width, self.view.frame.size.height - 60)
+
+    self.pageViewController.view.frame = CGRectMake(0, 80, 350, 450)
         
         
         self.addChildViewController(self.pageViewController)

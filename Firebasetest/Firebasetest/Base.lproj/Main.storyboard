@@ -133,20 +133,18 @@
                         <viewControllerLayoutGuide type="bottom" id="XLe-ZC-xW2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QsE-HI-2I5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="450"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQP-tf-cAe">
-                                <rect key="frame" x="78" y="69" width="219" height="38"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="Dra-nf-o5N"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQP-tf-cAe">
+                                <rect key="frame" x="66" y="59" width="219" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Details" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nqf-CS-IUD">
-                                <rect key="frame" x="67" y="393" width="250" height="85"/>
+                                <rect key="frame" x="50" y="326" width="250" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -154,11 +152,9 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="qQP-tf-cAe" firstAttribute="top" secondItem="cec-Nv-1Ef" secondAttribute="bottom" constant="49" id="e3p-z0-7ew"/>
-                            <constraint firstItem="qQP-tf-cAe" firstAttribute="centerX" secondItem="QsE-HI-2I5" secondAttribute="centerX" id="jZB-re-ud3"/>
-                        </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="350" height="450"/>
                     <connections>
                         <outlet property="DoorDetails" destination="Nqf-CS-IUD" id="8rB-Pl-TFp"/>
                         <outlet property="DoorTitle" destination="qQP-tf-cAe" id="XH5-C5-sNl"/>
