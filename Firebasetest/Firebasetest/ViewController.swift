@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +19,10 @@ class ViewController: UIViewController {
 
  
     override func viewDidAppear(animated: Bool) {
+        
+        if case state.sharedInstance.signedIn = false{
+        self.topLBL.text = "You Signed Out"
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -29,15 +33,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var emailFLD: UITextField!
     @IBOutlet weak var pwdFLD: UITextField!
     @IBOutlet weak var topLBL: UILabel!
-    @IBOutlet weak var botLBL: UILabel!
     @IBOutlet weak var loginBTN: UIButton!
-    @IBOutlet weak var logoutBTN: UIButton!
     @IBOutlet weak var regBTN: UIButton!
     
-    var ref: FIRDatabaseReference!
-    var messages: [FIRDataSnapshot]! = []
-    var msglength: NSNumber = 10
-    private var _refHandle: FIRDatabaseHandle!
+    
+    
+//    var ref: FIRDatabaseReference!
+//    var messages: [FIRDataSnapshot]! = []
+//    var msglength: NSNumber = 10
+//    private var _refHandle: FIRDatabaseHandle!
     
     @IBAction func didTapSignIn(sender: AnyObject) {
         // Sign In with credentials.
@@ -50,12 +54,15 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
                 return
             }
-             self.ref = FIRDatabase.database().reference()
+ //            self.ref = FIRDatabase.database().reference()
              print("sign in ok")
              print(user)
-             print(self.ref)
+//             print(self.ref)
              self.topLBL.text = "You have Signed In"
-  //          self.signedIn(user!)
+             state.sharedInstance.displayName = String(user)
+             state.sharedInstance.signedIn = true
+             self.performSegueWithIdentifier("jumpTo", sender: self)
+ //       self.signedIn(user!)
         }
     }
     
@@ -69,6 +76,8 @@ class ViewController: UIViewController {
             }
             print("sign UP ok")
             print(user)
+            state.sharedInstance.signedIn = true
+            state.sharedInstance.displayName = String(user)
             self.topLBL.text = "You have Signed UP"
  //         self.setDisplayName(user!)
         }
@@ -77,17 +86,8 @@ class ViewController: UIViewController {
     func configureDatabase() {
     }
     
+
     
-    @IBAction func signOut(sender: UIButton) {
-        let firebaseAuth = FIRAuth.auth()
-        do {
-            try firebaseAuth?.signOut()
-            dismissViewControllerAnimated(true, completion: nil)
-            print("sign out ok")
-            print(user)
-        } catch let signOutError as NSError {
-            print ("Error signing out: \(signOutError)")
-        }
-    }
+
     
 }

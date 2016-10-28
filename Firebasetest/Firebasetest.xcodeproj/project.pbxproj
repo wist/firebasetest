@@ -19,6 +19,8 @@
 		D66FD6DB1D7F58300010DD83 /* FirebasetestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66FD6DA1D7F58300010DD83 /* FirebasetestTests.swift */; };
 		D66FD6E61D7F58300010DD83 /* FirebasetestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66FD6E51D7F58300010DD83 /* FirebasetestUITests.swift */; };
 		D66FD6F41D7F59300010DD83 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D66FD6F31D7F59300010DD83 /* GoogleService-Info.plist */; };
+		D6824F531DC1F4410010F218 /* InViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6824F521DC1F4410010F218 /* InViewController.swift */; };
+		D6824F551DC1FFF00010F218 /* state.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6824F541DC1FFF00010F218 /* state.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		D66FD6E51D7F58300010DD83 /* FirebasetestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebasetestUITests.swift; sourceTree = "<group>"; };
 		D66FD6E71D7F58300010DD83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D66FD6F31D7F59300010DD83 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D6824F521DC1F4410010F218 /* InViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InViewController.swift; sourceTree = "<group>"; };
+		D6824F541DC1FFF00010F218 /* state.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = state.swift; sourceTree = "<group>"; };
 		D9D43C5E9181C018A2129BF4 /* Pods_Firebasetest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Firebasetest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2253043B299929A6AD9F63D /* Pods-FirebasetestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebasetestUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebasetestUITests/Pods-FirebasetestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,7 +146,9 @@
 			isa = PBXGroup;
 			children = (
 				D66FD6C21D7F58300010DD83 /* AppDelegate.swift */,
+				D6824F541DC1FFF00010F218 /* state.swift */,
 				D66FD6C41D7F58300010DD83 /* ViewController.swift */,
+				D6824F521DC1F4410010F218 /* InViewController.swift */,
 				D66FD6C61D7F58300010DD83 /* Main.storyboard */,
 				D66FD6CC1D7F58300010DD83 /* Assets.xcassets */,
 				D66FD6CE1D7F58300010DD83 /* LaunchScreen.storyboard */,
@@ -242,19 +248,22 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Wist;
 				TargetAttributes = {
 					D66FD6BE1D7F58300010DD83 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 5KTP2FK833;
+						LastSwiftMigration = 0800;
 					};
 					D66FD6D51D7F58300010DD83 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = D66FD6BE1D7F58300010DD83;
 					};
 					D66FD6E01D7F58300010DD83 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = D66FD6BE1D7F58300010DD83;
 					};
 				};
@@ -437,7 +446,9 @@
 			files = (
 				D66FD6C51D7F58300010DD83 /* ViewController.swift in Sources */,
 				D66FD6CB1D7F58300010DD83 /* Firebasetest.xcdatamodeld in Sources */,
+				D6824F551DC1FFF00010F218 /* state.swift in Sources */,
 				D66FD6C31D7F58300010DD83 /* AppDelegate.swift in Sources */,
+				D6824F531DC1F4410010F218 /* InViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,8 +517,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -551,8 +564,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -571,6 +586,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -587,6 +603,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wistertest.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -602,6 +619,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wistertest.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -614,6 +632,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.FirebasetestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Firebasetest.app/Firebasetest";
 			};
 			name = Debug;
@@ -627,6 +646,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.FirebasetestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Firebasetest.app/Firebasetest";
 			};
 			name = Release;
@@ -639,6 +659,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.FirebasetestUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = Firebasetest;
 			};
 			name = Debug;
@@ -651,6 +672,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.FirebasetestUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = Firebasetest;
 			};
 			name = Release;
