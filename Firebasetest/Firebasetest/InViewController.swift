@@ -36,21 +36,52 @@ class InViewController: UIViewController, UIPageViewControllerDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        self.loadFirebaseData()
+        print("Hallo on second view")
         
+ //       self.loadFirebaseData()
+
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        self.ref = FIRDatabase.database().referenceWithPath("trusted_devices")
+        //        print(self.ref)
+        self.ref.observeEventType(.Value, withBlock: { snapshot -> Void in
+            
+            var temporaryItemsArray = [NSDictionary]()
+            
+            for item in snapshot.children
+            {
+                //                   print("See something")
+                //                   print(item)
+                let child = item as! FIRDataSnapshot
+                let dictionary = child.value! as! NSDictionary
+                temporaryItemsArray.append(dictionary)
+            }
+            
+            self.items = temporaryItemsArray
+ //           print(self.items)
+            print("We have " + String(self.items.count)+" items")
+            
+            
+            
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            
+ //       })
+        print(self.items)
+        
+ 
         self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("DoorViewCNTR") as! UIPageViewController
         
         self.pageViewController.dataSource = self
         
         
         let startVC = self.viewControllerAtIndex(0) as DoorCNTViewController
+            
         let viewControllers = NSArray(object: startVC)
         
-        
+
         
         self.pageViewController.setViewControllers(viewControllers as? [UIViewController], direction: .Forward, animated: true, completion: nil)
-        
-        
+            
+
         
         self.pageViewController.view.frame = CGRectMake(0, 30, self.view.frame.width, self.view.frame.size.height - 60)
         
@@ -61,13 +92,15 @@ class InViewController: UIViewController, UIPageViewControllerDataSource{
         self.view.addSubview(self.pageViewController.view)
         
         self.pageViewController.didMoveToParentViewController(self)
-
+        
+        })
     
     }
 
     override func viewDidAppear(animated: Bool) {
         botLBL.text = "User:" + state.sharedInstance.displayName!
-
+ //     print("Hallo2 on second view")
+        
         
         
     }
@@ -88,8 +121,9 @@ class InViewController: UIViewController, UIPageViewControllerDataSource{
         
         vc.doorName = self.items[index]["name"] as! String
         vc.doorDTL = self.items[index]["mac"] as! String
-        vc.doorIMG = self.items[index]["imageUrl"] as! String
-        vc.doorIndex = index
+ //       vc.doorIMG = self.items[index]["imageUrl"] as! String
+ //       vc.doorIMG = self.items[index]["positionUUID"] as! String
+        vc.doorIndex = index 
         
         return vc
     }
@@ -146,44 +180,35 @@ class InViewController: UIViewController, UIPageViewControllerDataSource{
 
     
     func loadFirebaseData() {
-        
+//        print("Hallo at data load")
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         self.ref = FIRDatabase.database().referenceWithPath("trusted_devices")
-//        print(self.ref.child("TestNodes"))
-        ref.observeEventType(.Value, withBlock: { (snapshot) -> Void in
+//        print(self.ref)
+        self.ref.observeEventType(.Value, withBlock: { snapshot -> Void in
+
+        
         var temporaryItemsArray = [NSDictionary]()
             
-        for item in snapshot.children {
-//               print("See something")
-//                print(item)
-                let child = item as! FIRDataSnapshot
-                let dictionary = child.value as! NSDictionary
-                
-                temporaryItemsArray.append(dictionary)
-                
-            }
+        for item in snapshot.children
+                {
+ //                   print("See something")
+ //                   print(item)
+                    let child = item as! FIRDataSnapshot
+                    let dictionary = child.value! as! NSDictionary
+                    temporaryItemsArray.append(dictionary)
+                }
             
-            self.items = temporaryItemsArray
-//            print(temporaryItemsArray)
-            print("We have " + String(self.items.count)+" items")
-
+        self.items = temporaryItemsArray
+//      print(self.items)
+        print("We have " + String(self.items.count)+" items")
+        
+       
             
-//            self.tableView.reloadData()
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             
         })
+      
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

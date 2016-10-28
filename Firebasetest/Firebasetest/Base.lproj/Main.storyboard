@@ -127,7 +127,7 @@
         <!--DoorCNT View Controller-->
         <scene sceneID="aJH-84-GxM">
             <objects>
-                <viewController storyboardIdentifier="DoorContentCNTR" id="6oF-kD-hh4" customClass="DoorCNTViewController" customModule="Firebasetest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DoorCNTViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6oF-kD-hh4" customClass="DoorCNTViewController" customModule="Firebasetest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cec-Nv-1Ef"/>
                         <viewControllerLayoutGuide type="bottom" id="XLe-ZC-xW2"/>
@@ -145,15 +145,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TnK-ak-wfq">
-                                <rect key="frame" x="67" y="125" width="250" height="250"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="5NZ-Dl-vH0"/>
-                                    <constraint firstAttribute="width" constant="240" id="dHx-GP-ilk"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Details" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nqf-CS-IUD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Details" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nqf-CS-IUD">
                                 <rect key="frame" x="67" y="393" width="250" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -161,16 +155,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TnK-ak-wfq" firstAttribute="top" secondItem="qQP-tf-cAe" secondAttribute="bottom" constant="18" id="LJg-m1-gPq"/>
-                            <constraint firstItem="Nqf-CS-IUD" firstAttribute="top" secondItem="TnK-ak-wfq" secondAttribute="bottom" constant="18" id="MND-Qo-y3i"/>
                             <constraint firstItem="qQP-tf-cAe" firstAttribute="top" secondItem="cec-Nv-1Ef" secondAttribute="bottom" constant="49" id="e3p-z0-7ew"/>
                             <constraint firstItem="qQP-tf-cAe" firstAttribute="centerX" secondItem="QsE-HI-2I5" secondAttribute="centerX" id="jZB-re-ud3"/>
-                            <constraint firstItem="TnK-ak-wfq" firstAttribute="centerX" secondItem="qQP-tf-cAe" secondAttribute="centerX" constant="4.5" id="wWy-9T-gd8"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="DoorDetails" destination="Nqf-CS-IUD" id="8rB-Pl-TFp"/>
-                        <outlet property="DoorImage" destination="TnK-ak-wfq" id="1PO-O1-9i0"/>
                         <outlet property="DoorTitle" destination="qQP-tf-cAe" id="XH5-C5-sNl"/>
                     </connections>
                 </viewController>
@@ -181,7 +171,7 @@
         <!--Page View Controller-->
         <scene sceneID="p0l-3N-J5a">
             <objects>
-                <pageViewController storyboardIdentifier="DoorViewCNTR" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="vuK-un-dUp" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="DoorViewCNTR" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="vuK-un-dUp" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HLX-I2-y2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2028" y="-50"/>

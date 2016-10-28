@@ -11,23 +11,22 @@ import UIKit
 class DoorCNTViewController: UIViewController {
 
     @IBOutlet weak var DoorTitle: UILabel!
-    @IBOutlet weak var DoorImage: UIImageView!
+//    @IBOutlet weak var DoorImage: UIImageView!
     @IBOutlet weak var DoorDetails: UILabel!
     
     var doorIndex: Int!
     var doorName: String!
     var doorDTL: String!
-    var doorIMG: String!
+ //   var doorIMG: String!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.DoorTitle.text = self.doorName
-        self.DoorDetails.text = self.doorDTL
-        self.DoorImage.image = UIImage(named: self.doorIMG)
-        
+        self.DoorTitle.text = self.doorName! as String
+        self.DoorDetails.text = self.doorDTL! as String
+//        self.DoorImage.image = UIImage(named: self.doorIMG)! as UIImage
     }
 
     override func didReceiveMemoryWarning() {
