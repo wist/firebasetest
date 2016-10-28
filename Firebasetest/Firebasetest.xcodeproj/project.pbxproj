@@ -21,6 +21,7 @@
 		D66FD6F41D7F59300010DD83 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D66FD6F31D7F59300010DD83 /* GoogleService-Info.plist */; };
 		D6824F531DC1F4410010F218 /* InViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6824F521DC1F4410010F218 /* InViewController.swift */; };
 		D6824F551DC1FFF00010F218 /* state.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6824F541DC1FFF00010F218 /* state.swift */; };
+		D6DF546C1DC3620900AF25E5 /* DoorCNTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF546B1DC3620900AF25E5 /* DoorCNTViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		D66FD6F31D7F59300010DD83 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D6824F521DC1F4410010F218 /* InViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InViewController.swift; sourceTree = "<group>"; };
 		D6824F541DC1FFF00010F218 /* state.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = state.swift; sourceTree = "<group>"; };
+		D6DF546B1DC3620900AF25E5 /* DoorCNTViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoorCNTViewController.swift; sourceTree = "<group>"; };
 		D9D43C5E9181C018A2129BF4 /* Pods_Firebasetest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Firebasetest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2253043B299929A6AD9F63D /* Pods-FirebasetestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebasetestUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebasetestUITests/Pods-FirebasetestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +151,7 @@
 				D6824F541DC1FFF00010F218 /* state.swift */,
 				D66FD6C41D7F58300010DD83 /* ViewController.swift */,
 				D6824F521DC1F4410010F218 /* InViewController.swift */,
+				D6DF546B1DC3620900AF25E5 /* DoorCNTViewController.swift */,
 				D66FD6C61D7F58300010DD83 /* Main.storyboard */,
 				D66FD6CC1D7F58300010DD83 /* Assets.xcassets */,
 				D66FD6CE1D7F58300010DD83 /* LaunchScreen.storyboard */,
@@ -444,6 +447,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6DF546C1DC3620900AF25E5 /* DoorCNTViewController.swift in Sources */,
 				D66FD6C51D7F58300010DD83 /* ViewController.swift in Sources */,
 				D66FD6CB1D7F58300010DD83 /* Firebasetest.xcdatamodeld in Sources */,
 				D6824F551DC1FFF00010F218 /* state.swift in Sources */,

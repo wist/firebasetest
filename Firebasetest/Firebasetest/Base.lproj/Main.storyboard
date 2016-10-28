@@ -102,29 +102,89 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LxM-kt-4jX">
-                                <rect key="frame" x="21" y="103" width="338" height="544"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="918-GG-D7O">
-                                <rect key="frame" x="168" y="572" width="39" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQf-PD-ASi">
+                                <rect key="frame" x="144" y="617" width="81" height="30"/>
+                                <state key="normal" title="BACK"/>
+                                <connections>
+                                    <action selector="backBTN:" destination="Z1s-Fp-jaX" eventType="touchUpInside" id="dvr-np-mSw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fQf-PD-ASi" firstAttribute="centerX" secondItem="qba-83-gI0" secondAttribute="centerX" constant="-3" id="JJL-Sb-oa6"/>
+                            <constraint firstItem="aFo-DF-6fq" firstAttribute="top" secondItem="fQf-PD-ASi" secondAttribute="bottom" constant="20" id="lJY-ca-nb3"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="botLBL" destination="yJr-qt-tgD" id="agy-E6-JGA"/>
-                        <outlet property="txField" destination="LxM-kt-4jX" id="M84-zZ-gQb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vDy-Hu-POG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1204" y="264.91754122938534"/>
+        </scene>
+        <!--DoorCNT View Controller-->
+        <scene sceneID="aJH-84-GxM">
+            <objects>
+                <viewController storyboardIdentifier="DoorContentCNTR" id="6oF-kD-hh4" customClass="DoorCNTViewController" customModule="Firebasetest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cec-Nv-1Ef"/>
+                        <viewControllerLayoutGuide type="bottom" id="XLe-ZC-xW2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QsE-HI-2I5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQP-tf-cAe">
+                                <rect key="frame" x="78" y="69" width="219" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="Dra-nf-o5N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TnK-ak-wfq">
+                                <rect key="frame" x="67" y="125" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="5NZ-Dl-vH0"/>
+                                    <constraint firstAttribute="width" constant="240" id="dHx-GP-ilk"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Details" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nqf-CS-IUD">
+                                <rect key="frame" x="67" y="393" width="250" height="85"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TnK-ak-wfq" firstAttribute="top" secondItem="qQP-tf-cAe" secondAttribute="bottom" constant="18" id="LJg-m1-gPq"/>
+                            <constraint firstItem="Nqf-CS-IUD" firstAttribute="top" secondItem="TnK-ak-wfq" secondAttribute="bottom" constant="18" id="MND-Qo-y3i"/>
+                            <constraint firstItem="qQP-tf-cAe" firstAttribute="top" secondItem="cec-Nv-1Ef" secondAttribute="bottom" constant="49" id="e3p-z0-7ew"/>
+                            <constraint firstItem="qQP-tf-cAe" firstAttribute="centerX" secondItem="QsE-HI-2I5" secondAttribute="centerX" id="jZB-re-ud3"/>
+                            <constraint firstItem="TnK-ak-wfq" firstAttribute="centerX" secondItem="qQP-tf-cAe" secondAttribute="centerX" constant="4.5" id="wWy-9T-gd8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="DoorDetails" destination="Nqf-CS-IUD" id="8rB-Pl-TFp"/>
+                        <outlet property="DoorImage" destination="TnK-ak-wfq" id="1PO-O1-9i0"/>
+                        <outlet property="DoorTitle" destination="qQP-tf-cAe" id="XH5-C5-sNl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rz1-it-j7C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2021.5999999999999" y="617.54122938530736"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="p0l-3N-J5a">
+            <objects>
+                <pageViewController storyboardIdentifier="DoorViewCNTR" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="vuK-un-dUp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HLX-I2-y2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2028" y="-50"/>
         </scene>
     </scenes>
 </document>
