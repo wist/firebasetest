@@ -28,6 +28,10 @@ class DoorCNTViewController: UIViewController {
         self.DoorDetails.text = self.doorDTL! as String
 //        self.DoorImage.image = UIImage(named: self.doorIMG)! as UIImage
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        print("Door " + String(doorIndex))
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
