@@ -14,15 +14,16 @@ class InViewController: UIViewController, UIPageViewControllerDataSource{
     var items = [NSDictionary]()
     var pageViewController: UIPageViewController!
     
+    @IBOutlet weak var UserPic: UIImageView!
     @IBOutlet weak var botLBL: UILabel!
     var ref: FIRDatabaseReference!
 
     
-    @IBAction func UserDidTouchLogout(sender: AnyObject) {
+    @IBAction func UserDidTouchLogout(_ sender: AnyObject) {
         let firebaseAuth = FIRAuth.auth()
         do {
             try firebaseAuth?.signOut()
-            dismissViewControllerAnimated(true, completion: nil)
+            dismiss(animated: true, completion: nil)
             print("sign out ok")
             botLBL.text = "User Loged Out"
             state.sharedInstance.signedIn = false
@@ -36,74 +37,61 @@ class InViewController: UIViewController, UIPageViewControllerDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        print("Hallo on second view")
         
- //       self.loadFirebaseData()
+        UserPic.image = UIImage(named: String("userpic_default"))
+        
 
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        self.ref = FIRDatabase.database().referenceWithPath("trusted_devices")
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        self.ref = FIRDatabase.database().reference(withPath: "trusted_devices")
         //        print(self.ref)
-        self.ref.observeEventType(.Value, withBlock: { snapshot -> Void in
+        self.ref.observe(.value, with: { snapshot -> Void in
             
             var temporaryItemsArray = [NSDictionary]()
             
             for item in snapshot.children
             {
-                //                   print("See something")
-                //                   print(item)
                 let child = item as! FIRDataSnapshot
                 let dictionary = child.value! as! NSDictionary
                 temporaryItemsArray.append(dictionary)
             }
             
             self.items = temporaryItemsArray
- //           print(self.items)
+
             print("We have " + String(self.items.count)+" items")
             
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             
-            
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-            
- //       })
         print(self.items)
         
  
-        self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("DoorViewCNTR") as! UIPageViewController
+            self.pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "DoorViewCNTR") as! UIPageViewController
         
-        self.pageViewController.dataSource = self
+            self.pageViewController.dataSource = self
         
         
-        let startVC = self.viewControllerAtIndex(0) as DoorCNTViewController
+            let startVC = self.viewControllerAtIndex(0) as DoorCNTViewController
             
-        let viewControllers = NSArray(object: startVC)
+            let viewControllers = NSArray(object: startVC)
         
+            self.pageViewController.setViewControllers(viewControllers as? [UIViewController], direction: .forward, animated: true, completion: nil)
 
+            self.pageViewController.view.frame = CGRect(x: 12, y: 120, width: 350, height: 450)
+            self.pageViewController.view.backgroundColor = UIColor.clear
         
-        self.pageViewController.setViewControllers(viewControllers as? [UIViewController], direction: .Forward, animated: true, completion: nil)
-            
-
+            self.addChildViewController(self.pageViewController)
         
-//        self.pageViewController.view.frame = CGRectMake(0, 30, self.view.frame.width, self.view.frame.size.height - 60)
-
-        self.pageViewController.view.frame = CGRectMake(12, 100, 350, 450)
-        self.pageViewController.view.backgroundColor = UIColor.clearColor()
+            self.view.addSubview(self.pageViewController.view)
         
-        
-        self.addChildViewController(self.pageViewController)
-        
-        self.view.addSubview(self.pageViewController.view)
-        
-        self.pageViewController.didMoveToParentViewController(self)
+            self.pageViewController.didMove(toParentViewController: self)
         
         })
     
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         botLBL.text = "User:" + state.sharedInstance.displayName!
- //     print("Hallo2 on second view")
-        
-        
+
         
     }
     
@@ -112,13 +100,13 @@ class InViewController: UIViewController, UIPageViewControllerDataSource{
         // Dispose of any resources that can be recreated.
     }
     
-    func viewControllerAtIndex(index: Int) -> DoorCNTViewController {
+    func viewControllerAtIndex(_ index: Int) -> DoorCNTViewController {
         if (self.items.count == 0 || (index >= self.items.count))
         {
         return DoorCNTViewController()
         }
         
-        let vc : DoorCNTViewController = self.storyboard?.instantiateViewControllerWithIdentifier("DoorCNTViewController")
+        let vc : DoorCNTViewController = self.storyboard?.instantiateViewController(withIdentifier: "DoorCNTViewController")
         as! DoorCNTViewController
         
         vc.doorName = self.items[index]["name"] as! String
@@ -130,63 +118,60 @@ class InViewController: UIViewController, UIPageViewControllerDataSource{
         return vc
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let vc = viewController as! DoorCNTViewController
         var indexT = vc.doorIndex as Int
     
-    if (indexT == 0 || indexT == NSNotFound)
-    {
-        return nil
+            if (indexT == 0 || indexT == NSNotFound)
+                {
+                    return nil
+                }
+                indexT -= 1
+                return self.viewControllerAtIndex(indexT)
         }
-        indexT -= 1
-        return self.viewControllerAtIndex(indexT)
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+            let vc = viewController as! DoorCNTViewController
+            var indexT = vc.doorIndex as Int
+        
+            if (indexT == NSNotFound)
+                {
+                    return nil
+                }
+                indexT += 1
+        
+            if (indexT == self.items.count)
+                {
+                    return nil
+                }
+            return self.viewControllerAtIndex(indexT)
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        let vc = viewController as! DoorCNTViewController
-        var indexT = vc.doorIndex as Int
-        
-        if (indexT == NSNotFound)
-        {
-        return nil
-        }
-        
-        indexT += 1
-        
-        if (indexT == self.items.count)
-        {
-        return nil
-        }
-        
-        return self.viewControllerAtIndex(indexT)
-    }
-    
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return self.items.count
     }
     
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return 0
     }
     
-    @IBAction func backBTN(sender: AnyObject) {
+    @IBAction func backBTN(_ sender: AnyObject) {
         
         let startVC = self.viewControllerAtIndex(0) as DoorCNTViewController
         let viewControllers = NSArray(object: startVC)
+    
         
-        
-        
-        self.pageViewController.setViewControllers(viewControllers as? [UIViewController], direction: .Forward, animated: true, completion: nil)
+        self.pageViewController.setViewControllers(viewControllers as? [UIViewController], direction: .forward, animated: true, completion: nil)
         
     }
 
     
     func loadFirebaseData() {
 //        print("Hallo at data load")
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        self.ref = FIRDatabase.database().referenceWithPath("trusted_devices")
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        self.ref = FIRDatabase.database().reference(withPath: "trusted_devices")
 //        print(self.ref)
-        self.ref.observeEventType(.Value, withBlock: { snapshot -> Void in
+        self.ref.observe(.value, with: { snapshot -> Void in
 
         
         var temporaryItemsArray = [NSDictionary]()
@@ -206,7 +191,7 @@ class InViewController: UIViewController, UIPageViewControllerDataSource{
         
        
             
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
             
         })
       
